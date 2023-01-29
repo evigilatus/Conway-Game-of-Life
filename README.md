@@ -14,8 +14,7 @@ Java 11, Spring Boot
 
 ### Proposed solution
 
-The current solution is basically the simplest possible in terms of implementation, however its performance for large
-input grids will be ***O(x*y)** and requires two separate 2D arrays.
+The current solution is basically the simplest possible in terms of implementation, however its complexity is ***O(x*y)** and requires two separate 2D arrays. It will not perform well with very large input grids.
 
 All the transformations occur only around the live cells (1s) so if we have a sparse matrix, we can only focus on the 1s
 and their neighbours instead of the whole matrix. Even if we start with a matrix with mostly 1s, over 1-2 generations
