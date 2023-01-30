@@ -2,8 +2,6 @@ package com.conway.gameoflife.service;
 
 import org.springframework.stereotype.Service;
 
-import com.conway.gameoflife.util.ConwayGridHandler;
-
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 

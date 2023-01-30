@@ -1,4 +1,4 @@
-package com.conway.gameoflife.util;
+package com.conway.gameoflife.service;
 
 import org.springframework.stereotype.Service;
 
@@ -26,7 +26,7 @@ public class ConwayGridHandler {
 
         for (int y = 0; y < gridHeight; y++) {
             for (int x = 0; x < gridWidth; x++) {
-                int aliveNeighbours = countLiveNeighborsForCell(grid, x, y);
+                final var aliveNeighbours = countLiveNeighborsForCell(grid, x, y);
 
                 if (grid[y][x] == 1 && (aliveNeighbours < 2 || aliveNeighbours > 3)) {
                     // Alive cell with less than 2 or more than 3 neighbours dies.
@@ -51,10 +51,10 @@ public class ConwayGridHandler {
      * @return neighbours count for a given cell with coordinates x:y in the board.
      */
     public int countLiveNeighborsForCell(int[][] grid, int x_coordinate, int y_coordinate) {
-        int gridHeight = grid.length;
-        int gridWidth = grid[0].length;
+        final var gridHeight = grid.length;
+        final var gridWidth = grid[0].length;
 
-        int aliveNeighbours = 0;
+        var aliveNeighbours = 0;
         for (int y = Math.max(y_coordinate - 1, 0); y <= Math.min(y_coordinate + 1, gridHeight - 1); y++) {
             for (int x = Math.max(x_coordinate - 1, 0); x <= Math.min(x_coordinate + 1, gridWidth - 1); x++) {
                 aliveNeighbours += grid[y][x];

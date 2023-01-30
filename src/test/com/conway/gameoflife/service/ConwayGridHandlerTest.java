@@ -1,4 +1,4 @@
-package com.conway.gameoflife.util;
+package com.conway.gameoflife.service;
 
 import static com.conway.gameoflife.ConwayGameTestUtil.EXPECTED_MATRIX_AFTER_1_GEN;
 import static com.conway.gameoflife.ConwayGameTestUtil.TEST_MATRIX;
@@ -17,7 +17,13 @@ public class ConwayGridHandlerTest {
     private ConwayGridHandler gridHandler;
 
     @Test
-    public void countLiveNeighborsForCell() {
+    public void countLiveNeighborsForCell_0() {
+        final var result = gridHandler.countLiveNeighborsForCell(TEST_MATRIX, 1, 2);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void countLiveNeighborsForCell_1() {
         final var result = gridHandler.countLiveNeighborsForCell(TEST_MATRIX, 0, 0);
         assertEquals(1, result);
     }
@@ -32,6 +38,12 @@ public class ConwayGridHandlerTest {
     public void countLiveNeighborsForCell_3() {
         final var result = gridHandler.countLiveNeighborsForCell(TEST_MATRIX, 8, 4);
         assertEquals(3, result);
+    }
+
+    @Test
+    public void countLiveNeighborsForCell_MoreThan3() {
+        final var result = gridHandler.countLiveNeighborsForCell(TEST_MATRIX, 8, 3);
+        assertEquals(5, result);
     }
 
     @Test
